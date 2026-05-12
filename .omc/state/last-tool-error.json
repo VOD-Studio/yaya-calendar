@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"which flutter && flutter --version 2>&1 | head -5\",\"description\":\"Check Flutter installation\"}",
+  "error": "Exit code 1\nflutter not found",
+  "timestamp": "2026-05-12T14:26:30.788Z",
+  "retry_count": 1
+}
