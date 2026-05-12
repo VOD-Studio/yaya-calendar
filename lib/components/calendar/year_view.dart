@@ -10,8 +10,9 @@ import 'package:yaya_calendar/styles/theme.dart';
 
 class YearView extends StatefulWidget {
   final int displayYear;
+  final void Function(int month)? onMonthPress;
 
-  const YearView({super.key, required this.displayYear});
+  const YearView({super.key, required this.displayYear, this.onMonthPress});
 
   @override
   State<YearView> createState() => _YearViewState();
@@ -71,6 +72,9 @@ class _YearViewState extends State<YearView> {
               isSelectedMonth: isSelectedMonth,
               colors: colors,
               onTap: () {
+                // 通知 MainScreen 执行动画切换
+                widget.onMonthPress?.call(month);
+
                 // 点击月份跳转到月视图
                 final now = DateTime.now();
                 final target = (_displayYear == now.year && month == now.month)
