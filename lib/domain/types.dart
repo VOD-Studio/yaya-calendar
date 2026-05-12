@@ -146,9 +146,6 @@ class RecurrenceRule {
 /// 视图类型
 enum ViewType { year, month, week, day, events }
 
-/// 主题模式
-enum ThemeMode { light, dark, system }
-
 /// 农历日期
 class LunarDate {
   final int year;
