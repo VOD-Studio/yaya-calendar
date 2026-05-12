@@ -27,6 +27,7 @@ dependencies:
 
   # 本地存储（主题偏好）
   shared_preferences: ^2.3.4
+  lunar: ^1.7.8
 
 dev_dependencies:
   flutter_test:
