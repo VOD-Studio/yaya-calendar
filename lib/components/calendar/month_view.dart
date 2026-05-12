@@ -117,8 +117,11 @@ class _MonthViewState extends State<MonthView> {
               ),
             ),
           ),
-          // 日期信息面板
-          DayInfoPanel(date: viewStore.selectedDate),
+          // 日期信息面板（限制最大高度避免溢出）
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 200),
+            child: DayInfoPanel(date: viewStore.selectedDate),
+          ),
         ],
       ),
     );

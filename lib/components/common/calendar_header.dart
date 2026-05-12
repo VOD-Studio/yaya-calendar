@@ -2,7 +2,6 @@
 // 对应原项目的 components/common/CalendarHeader.tsx
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:yaya_calendar/domain/types.dart';
 import 'package:yaya_calendar/stores/view_store.dart';
@@ -19,7 +18,7 @@ class CalendarHeader extends StatelessWidget {
     final currentView = viewStore.currentView;
 
     final yearText = '${selectedDate.year}年';
-    final monthText = DateFormat('yyyy年M月', 'zh_CN').format(selectedDate);
+    final monthText = '${selectedDate.year}年${selectedDate.month}月';
     final weekNumber = _getWeekNumber(selectedDate);
 
     return Padding(
