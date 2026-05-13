@@ -36,10 +36,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
             children: [
               Text(
                 '事件不存在',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: colors.textSecondary,
-                ),
+                style: TextStyle(fontSize: 16, color: colors.textSecondary),
               ),
               const SizedBox(height: 16),
               FilledButton(
@@ -73,10 +70,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
               child: TextButton.icon(
                 onPressed: () => Navigator.of(context).pop(),
                 icon: Icon(Icons.chevron_left, color: colors.primary),
-                label: Text(
-                  '返回',
-                  style: TextStyle(color: colors.primary),
-                ),
+                label: Text('返回', style: TextStyle(color: colors.primary)),
               ),
             ),
 
@@ -92,10 +86,7 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // 颜色条
-                  Container(
-                    height: 4,
-                    color: _parseColor(event.color),
-                  ),
+                  Container(height: 4, color: _parseColor(event.color)),
                   // 标题
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
@@ -184,7 +175,9 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                   Expanded(
                     child: FilledButton(
                       onPressed: () {
-                        final event = context.read<EventStore>().getEventById(widget.eventId);
+                        final event = context.read<EventStore>().getEventById(
+                          widget.eventId,
+                        );
                         if (event == null || !mounted) return;
                         AppModal.show(
                           context: context,
@@ -227,14 +220,9 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
                           ? const SizedBox(
                               width: 20,
                               height: 20,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                              ),
+                              child: CircularProgressIndicator(strokeWidth: 2),
                             )
-                          : Text(
-                              '删除',
-                              style: TextStyle(color: colors.text),
-                            ),
+                          : Text('删除', style: TextStyle(color: colors.text)),
                     ),
                   ),
                 ],
@@ -275,9 +263,9 @@ class _EventDetailScreenState extends State<EventDetailScreen> {
       if (mounted) Navigator.of(context).pop();
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('删除失败，请重试')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('删除失败，请重试')));
       }
     } finally {
       if (mounted) setState(() => _deleting = false);
@@ -335,9 +323,7 @@ class _InfoSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       decoration: BoxDecoration(
-        border: Border(
-          top: BorderSide(color: colors.border),
-        ),
+        border: Border(top: BorderSide(color: colors.border)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

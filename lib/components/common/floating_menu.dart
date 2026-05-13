@@ -11,11 +11,7 @@ class FloatingMenu extends StatelessWidget {
   final bool visible;
   final VoidCallback onClose;
 
-  const FloatingMenu({
-    super.key,
-    required this.visible,
-    required this.onClose,
-  });
+  const FloatingMenu({super.key, required this.visible, required this.onClose});
 
   @override
   Widget build(BuildContext context) {
@@ -125,14 +121,10 @@ class _MenuItem extends StatelessWidget {
                 Expanded(
                   child: Text(
                     label,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: colors.text,
-                    ),
+                    style: TextStyle(fontSize: 16, color: colors.text),
                   ),
                 ),
-                Icon(Icons.chevron_right,
-                    size: 18, color: colors.textTertiary),
+                Icon(Icons.chevron_right, size: 18, color: colors.textTertiary),
               ],
             ),
           ),

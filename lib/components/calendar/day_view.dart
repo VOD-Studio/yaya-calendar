@@ -19,7 +19,8 @@ class DayView extends StatelessWidget {
 
     final selectedDate = DateTime.parse(viewStore.selectedDate);
     final now = DateTime.now();
-    final isToday = selectedDate.year == now.year &&
+    final isToday =
+        selectedDate.year == now.year &&
         selectedDate.month == now.month &&
         selectedDate.day == now.day;
     final lunarInfo = getLunarInfo(selectedDate);
@@ -127,10 +128,7 @@ class DayView extends StatelessWidget {
                               left: 0,
                               right: 0,
                               top: 0,
-                              child: Container(
-                                height: 2,
-                                color: colors.error,
-                              ),
+                              child: Container(height: 2, color: colors.error),
                             ),
                         ],
                       ),

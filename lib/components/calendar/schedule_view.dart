@@ -23,10 +23,7 @@ class ScheduleView extends StatelessWidget {
       return Center(
         child: Text(
           '暂无日程安排',
-          style: TextStyle(
-            fontSize: 16,
-            color: colors.textSecondary,
-          ),
+          style: TextStyle(fontSize: 16, color: colors.textSecondary),
         ),
       );
     }
@@ -90,7 +87,9 @@ class ScheduleView extends StatelessWidget {
               // 农历显示
               final lunarInfo = getLunarInfo(date);
               final lunarDisplay =
-                  lunarInfo.holiday ?? lunarInfo.solarTerm ?? lunarInfo.lunarDay;
+                  lunarInfo.holiday ??
+                  lunarInfo.solarTerm ??
+                  lunarInfo.lunarDay;
 
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,10 +154,7 @@ class _EventCard extends StatelessWidget {
         color: colors.surface,
         borderRadius: BorderRadius.circular(12),
         border: Border(
-          left: BorderSide(
-            width: 4,
-            color: _parseColor(event.color),
-          ),
+          left: BorderSide(width: 4, color: _parseColor(event.color)),
         ),
       ),
       padding: const EdgeInsets.all(16),
@@ -179,10 +175,7 @@ class _EventCard extends StatelessWidget {
                 ),
                 Text(
                   '-${end.hour.toString().padLeft(2, '0')}:${end.minute.toString().padLeft(2, '0')}',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: colors.textTertiary,
-                  ),
+                  style: TextStyle(fontSize: 12, color: colors.textTertiary),
                 ),
               ],
             ),

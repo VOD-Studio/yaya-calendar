@@ -13,11 +13,12 @@ import 'package:yaya_calendar/styles/theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 初始化数据库
-  final db = DatabaseService();
-  await db.init();
+  try {
+    await DatabaseService().init();
+  } catch (e, s) {
+    debugPrint('Database init failed (will use in-memory fallback): $e\n$s');
+  }
 
-  // 初始化主题（构造函数中自动加载偏好设置）
   final themeStore = ThemeStore();
 
   runApp(YayaCalendarApp(themeStore: themeStore));

@@ -27,9 +27,7 @@ class AppModal {
           ),
           decoration: BoxDecoration(
             color: colors.surface,
-            borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(24),
-            ),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -42,9 +40,7 @@ class AppModal {
                     vertical: 16,
                   ),
                   decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: colors.border),
-                    ),
+                    border: Border(bottom: BorderSide(color: colors.border)),
                   ),
                   child: Row(
                     children: [
@@ -77,9 +73,7 @@ class AppModal {
                     vertical: 16,
                   ),
                   decoration: BoxDecoration(
-                    border: Border(
-                      top: BorderSide(color: colors.border),
-                    ),
+                    border: Border(top: BorderSide(color: colors.border)),
                   ),
                   child: footer,
                 ),

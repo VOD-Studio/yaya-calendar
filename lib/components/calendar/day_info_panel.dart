@@ -52,10 +52,7 @@ class DayInfoPanel extends StatelessWidget {
               ),
               Text(
                 dateInfo.lunarInfo,
-                style: TextStyle(
-                  color: colors.textSecondary,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: colors.textSecondary, fontSize: 12),
               ),
             ],
           ),
@@ -64,10 +61,7 @@ class DayInfoPanel extends StatelessWidget {
               padding: const EdgeInsets.only(top: 4),
               child: Text(
                 dateInfo.festival!,
-                style: TextStyle(
-                  color: colors.textSecondary,
-                  fontSize: 12,
-                ),
+                style: TextStyle(color: colors.textSecondary, fontSize: 12),
               ),
             ),
           // 事件列表
@@ -185,10 +179,7 @@ class _EventCard extends StatelessWidget {
                 children: [
                   Text(
                     timeRange,
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: colors.textTertiary,
-                    ),
+                    style: TextStyle(fontSize: 11, color: colors.textTertiary),
                   ),
                   Text(
                     event.title,

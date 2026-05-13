@@ -64,7 +64,8 @@ class _YearViewState extends State<YearView> {
           itemBuilder: (context, index) {
             final month = index + 1;
             final isSelectedMonth =
-                _displayYear == selectedDate.year && month == selectedDate.month;
+                _displayYear == selectedDate.year &&
+                month == selectedDate.month;
 
             return _MiniMonthGrid(
               year: _displayYear,
@@ -132,9 +133,11 @@ class _MiniMonthGrid extends StatelessWidget {
     final calEnd = _saturdayOfWeek(lastDay);
 
     final days = <DateTime>[];
-    for (var d = calStart;
-        !d.isAfter(calEnd);
-        d = d.add(const Duration(days: 1))) {
+    for (
+      var d = calStart;
+      !d.isAfter(calEnd);
+      d = d.add(const Duration(days: 1))
+    ) {
       days.add(d);
     }
 
@@ -159,17 +162,19 @@ class _MiniMonthGrid extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: ['日', '一', '二', '三', '四', '五', '六']
-                .map((label) => SizedBox(
-                      width: 14,
-                      child: Text(
-                        label,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 9,
-                          color: colors.textSecondary,
-                        ),
+                .map(
+                  (label) => SizedBox(
+                    width: 14,
+                    child: Text(
+                      label,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 9,
+                        color: colors.textSecondary,
                       ),
-                    ))
+                    ),
+                  ),
+                )
                 .toList(),
           ),
           const SizedBox(height: 2),
@@ -179,7 +184,8 @@ class _MiniMonthGrid extends StatelessWidget {
             runSpacing: 1,
             children: days.map((day) {
               final isCurrentMonth = day.month == month && day.year == year;
-              final isToday = day.year == now.year &&
+              final isToday =
+                  day.year == now.year &&
                   day.month == now.month &&
                   day.day == now.day;
               final dateStr = _toIsoDate(day);
@@ -205,8 +211,8 @@ class _MiniMonthGrid extends StatelessWidget {
                               color: isToday
                                   ? Colors.white
                                   : isHoliday
-                                      ? primaryColor
-                                      : colors.text,
+                                  ? primaryColor
+                                  : colors.text,
                             ),
                           ),
                         )

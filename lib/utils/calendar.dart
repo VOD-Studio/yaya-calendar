@@ -53,9 +53,11 @@ List<DateTime> getCalendarDays(int year, int month) {
   final calEnd = _sundayOfWeek(monthEnd);
 
   final days = <DateTime>[];
-  for (var d = calStart;
-      !d.isAfter(calEnd);
-      d = d.add(const Duration(days: 1))) {
+  for (
+    var d = calStart;
+    !d.isAfter(calEnd);
+    d = d.add(const Duration(days: 1))
+  ) {
     days.add(d);
   }
   return days;

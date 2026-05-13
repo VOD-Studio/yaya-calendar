@@ -64,9 +64,7 @@ class _EventFormState extends State<EventForm> {
     _titleController = TextEditingController(text: e?.title ?? '');
     _descController = TextEditingController(text: e?.description ?? '');
     _dateController = TextEditingController(
-      text: e?.startTime.split('T').first ??
-          widget.initialDate ??
-          _todayStr(),
+      text: e?.startTime.split('T').first ?? widget.initialDate ?? _todayStr(),
     );
     _startTimeController = TextEditingController(
       text: e != null ? _extractTime(e.startTime) : '09:00',
@@ -139,9 +137,9 @@ class _EventFormState extends State<EventForm> {
       widget.onSave();
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('保存失败，请重试')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('保存失败，请重试')));
       }
     } finally {
       if (mounted) setState(() => _loading = false);
@@ -366,19 +364,15 @@ class _EventFormState extends State<EventForm> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text(
-                    '取消',
-                    style: TextStyle(color: colors.text),
-                  ),
+                  child: Text('取消', style: TextStyle(color: colors.text)),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: FilledButton(
-                  onPressed:
-                      _titleController.text.trim().isEmpty || _loading
-                          ? null
-                          : _handleSave,
+                  onPressed: _titleController.text.trim().isEmpty || _loading
+                      ? null
+                      : _handleSave,
                   style: FilledButton.styleFrom(
                     backgroundColor: const Color(0xFFE8563A),
                     padding: const EdgeInsets.symmetric(vertical: 14),

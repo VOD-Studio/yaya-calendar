@@ -29,8 +29,9 @@ class ThemeStore extends ChangeNotifier {
   /// 切换亮色/暗色
   void toggleTheme() {
     final effectiveMode = _getEffectiveMode();
-    final newMode =
-        effectiveMode == Brightness.light ? ThemeMode.dark : ThemeMode.light;
+    final newMode = effectiveMode == Brightness.light
+        ? ThemeMode.dark
+        : ThemeMode.light;
     setMode(newMode);
   }
 
@@ -52,8 +53,9 @@ class ThemeStore extends ChangeNotifier {
 
   void _updateTheme() {
     final effective = _getEffectiveMode();
-    _themeData =
-        effective == Brightness.dark ? buildDarkTheme() : buildLightTheme();
+    _themeData = effective == Brightness.dark
+        ? buildDarkTheme()
+        : buildLightTheme();
   }
 
   Future<void> _loadFromPrefs() async {
@@ -80,8 +82,8 @@ class ThemeStore extends ChangeNotifier {
     final value = _mode == ThemeMode.light
         ? 'light'
         : _mode == ThemeMode.dark
-            ? 'dark'
-            : 'system';
+        ? 'dark'
+        : 'system';
     await prefs.setString('yaya-theme-mode', value);
   }
 }

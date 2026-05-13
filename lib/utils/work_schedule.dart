@@ -8,9 +8,11 @@ const int _cycleDays = 4;
 
 /// 计算给定日期的班休状态
 WorkStatus getWorkStatus(DateTime date) {
-  final diffDays = DateTime(date.year, date.month, date.day)
-      .difference(DateTime(_baseDate.year, _baseDate.month, _baseDate.day))
-      .inDays;
+  final diffDays = DateTime(
+    date.year,
+    date.month,
+    date.day,
+  ).difference(DateTime(_baseDate.year, _baseDate.month, _baseDate.day)).inDays;
   // 处理负数
   final dayInCycle = ((diffDays % _cycleDays) + _cycleDays) % _cycleDays;
   return dayInCycle < 2 ? WorkStatus.work : WorkStatus.rest;

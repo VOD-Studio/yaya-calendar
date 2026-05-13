@@ -36,9 +36,11 @@ class MonthGrid extends StatelessWidget {
     final calEnd = _sundayOfWeek(lastDay);
 
     final days = <DateTime>[];
-    for (var d = calStart;
-        !d.isAfter(calEnd);
-        d = d.add(const Duration(days: 1))) {
+    for (
+      var d = calStart;
+      !d.isAfter(calEnd);
+      d = d.add(const Duration(days: 1))
+    ) {
       days.add(d);
     }
 
@@ -53,7 +55,9 @@ class MonthGrid extends StatelessWidget {
           selectedDate: viewStore.selectedDate,
           colors: colors,
           lunarInfo: lunarInfoMap?[_toIsoDate(day)],
-          events: eventsMap?[_toIsoDate(day)] ?? eventStore.getEventsForDate(_toIsoDate(day)),
+          events:
+              eventsMap?[_toIsoDate(day)] ??
+              eventStore.getEventsForDate(_toIsoDate(day)),
           onTap: () {
             final dateStr = _toIsoDate(day);
             // 判断是否是当月日期
@@ -169,10 +173,7 @@ class _DayCell extends StatelessWidget {
                   child: Center(
                     child: Text(
                       '${day.day}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: textColor,
-                      ),
+                      style: TextStyle(fontSize: 14, color: textColor),
                     ),
                   ),
                 ),

@@ -72,9 +72,9 @@ class CalendarEvent {
           : null,
       recurrenceException: map['recurrence_exception'] != null
           ? (map['recurrence_exception'] as String)
-              .split(',')
-              .where((s) => s.isNotEmpty)
-              .toList()
+                .split(',')
+                .where((s) => s.isNotEmpty)
+                .toList()
           : null,
       timezone: map['timezone'] as String?,
       createdAt: map['created_at'] as String,
@@ -125,9 +125,7 @@ class RecurrenceRule {
       interval: map['interval'] as int? ?? 1,
       endDate: map['endDate'] as String?,
       count: map['count'] as int?,
-      byDay: map['byDay'] != null
-          ? List<int>.from(map['byDay'] as List)
-          : null,
+      byDay: map['byDay'] != null ? List<int>.from(map['byDay'] as List) : null,
       byMonthDay: map['byMonthDay'] as int?,
     );
   }

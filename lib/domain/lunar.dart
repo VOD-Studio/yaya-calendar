@@ -6,20 +6,52 @@ import 'package:yaya_calendar/domain/types.dart';
 
 // 二十四节气顺序
 const List<String> _solarTerms = [
-  '小寒', '大寒', '立春', '雨水', '惊蛰', '春分',
-  '清明', '谷雨', '立夏', '小满', '芒种', '夏至',
-  '小暑', '大暑', '立秋', '处暑', '白露', '秋分',
-  '寒露', '霜降', '立冬', '小雪', '大雪', '冬至',
+  '小寒',
+  '大寒',
+  '立春',
+  '雨水',
+  '惊蛰',
+  '春分',
+  '清明',
+  '谷雨',
+  '立夏',
+  '小满',
+  '芒种',
+  '夏至',
+  '小暑',
+  '大暑',
+  '立秋',
+  '处暑',
+  '白露',
+  '秋分',
+  '寒露',
+  '霜降',
+  '立冬',
+  '小雪',
+  '大雪',
+  '冬至',
 ];
 
 // 传统节日（休息日）
 const Set<String> _traditionalHolidays = {
-  '春节', '元宵节', '清明节', '端午节', '中秋节', '重阳节', '除夕',
+  '春节',
+  '元宵节',
+  '清明节',
+  '端午节',
+  '中秋节',
+  '重阳节',
+  '除夕',
 };
 
 // 法定假日
 const Set<String> _statutoryHolidays = {
-  '元旦', '春节', '清明节', '劳动节', '端午节', '中秋节', '国庆节',
+  '元旦',
+  '春节',
+  '清明节',
+  '劳动节',
+  '端午节',
+  '中秋节',
+  '国庆节',
 };
 
 // 农历信息月级缓存
@@ -83,34 +115,35 @@ List<Holiday> getHolidays(DateTime date) {
   // 农历节日
   final lunarFestivals = lunar.getFestivals();
   for (final f in lunarFestivals) {
-    result.add(Holiday(
-      name: f,
-      date: dateStr,
-      type: 'traditional',
-      isHoliday: _traditionalHolidays.contains(f),
-    ));
+    result.add(
+      Holiday(
+        name: f,
+        date: dateStr,
+        type: 'traditional',
+        isHoliday: _traditionalHolidays.contains(f),
+      ),
+    );
   }
 
   // 公历节日
   final solarFestivals = solar.getFestivals();
   for (final f in solarFestivals) {
-    result.add(Holiday(
-      name: f,
-      date: dateStr,
-      type: 'statutory',
-      isHoliday: _statutoryHolidays.contains(f),
-    ));
+    result.add(
+      Holiday(
+        name: f,
+        date: dateStr,
+        type: 'statutory',
+        isHoliday: _statutoryHolidays.contains(f),
+      ),
+    );
   }
 
   // 节气
   final jieQi = lunar.getJieQi();
   if (jieQi.isNotEmpty) {
-    result.add(Holiday(
-      name: jieQi,
-      date: dateStr,
-      type: 'solar_term',
-      isHoliday: false,
-    ));
+    result.add(
+      Holiday(name: jieQi, date: dateStr, type: 'solar_term', isHoliday: false),
+    );
   }
 
   return result;
@@ -133,10 +166,14 @@ bool isSolarTermDay(DateTime date) {
 String? getHolidayDisplay(DateTime date) {
   final holidays = getHolidays(date);
   // 优先显示传统节日和法定假日
-  final priorityHolidays = holidays.where((h) => h.type != 'solar_term').toList();
+  final priorityHolidays = holidays
+      .where((h) => h.type != 'solar_term')
+      .toList();
   if (priorityHolidays.isNotEmpty) return priorityHolidays.first.name;
   // 其次显示节气
-  final solarTermHoliday = holidays.where((h) => h.type == 'solar_term').firstOrNull;
+  final solarTermHoliday = holidays
+      .where((h) => h.type == 'solar_term')
+      .firstOrNull;
   return solarTermHoliday?.name;
 }
 
@@ -204,9 +241,11 @@ List<DateTime> _getMonthCalendarDays(int year, int month) {
   final calEnd = _sundayOfWeek(monthEnd);
 
   final days = <DateTime>[];
-  for (var d = calStart;
-      !d.isAfter(calEnd);
-      d = d.add(const Duration(days: 1))) {
+  for (
+    var d = calStart;
+    !d.isAfter(calEnd);
+    d = d.add(const Duration(days: 1))
+  ) {
     days.add(d);
   }
   return days;

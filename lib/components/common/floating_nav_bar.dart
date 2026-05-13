@@ -225,8 +225,8 @@ class _TabItem extends StatelessWidget {
               fontWeight: active ? FontWeight.w600 : FontWeight.w400,
               color: active
                   ? (Theme.of(context).brightness == Brightness.dark
-                      ? const Color(0xFF1C1C1E)
-                      : const Color(0xFFFAFAFA))
+                        ? const Color(0xFF1C1C1E)
+                        : const Color(0xFFFAFAFA))
                   : colors.textSecondary,
             ),
           ),

@@ -100,9 +100,7 @@ ThemeData buildLightTheme() {
         borderRadius: BorderRadius.circular(AppRadius.md),
       ),
     ),
-    dividerTheme: const DividerThemeData(
-      color: LightColors.border,
-    ),
+    dividerTheme: const DividerThemeData(color: LightColors.border),
   );
 }
 
@@ -131,9 +129,7 @@ ThemeData buildDarkTheme() {
         borderRadius: BorderRadius.circular(AppRadius.md),
       ),
     ),
-    dividerTheme: const DividerThemeData(
-      color: DarkColors.border,
-    ),
+    dividerTheme: const DividerThemeData(color: DarkColors.border),
   );
 }
 
@@ -189,46 +185,46 @@ class AppColors {
   });
 
   factory AppColors.fromLight() => const AppColors(
-        primary: LightColors.primary,
-        primaryLight: LightColors.primaryLight,
-        background: LightColors.background,
-        surface: LightColors.surface,
-        surfaceVariant: LightColors.surfaceVariant,
-        text: LightColors.text,
-        textSecondary: LightColors.textSecondary,
-        textTertiary: LightColors.textTertiary,
-        border: LightColors.border,
-        error: LightColors.error,
-        todayBackground: LightColors.todayBackground,
-        todayText: LightColors.todayText,
-        selectedBackground: LightColors.selectedBackground,
-        selectedText: LightColors.selectedText,
-        eventDefault: LightColors.eventDefault,
-        weekendText: LightColors.weekendText,
-        lunarText: LightColors.lunarText,
-        holidayText: LightColors.holidayText,
-        solarTermText: LightColors.solarTermText,
-      );
+    primary: LightColors.primary,
+    primaryLight: LightColors.primaryLight,
+    background: LightColors.background,
+    surface: LightColors.surface,
+    surfaceVariant: LightColors.surfaceVariant,
+    text: LightColors.text,
+    textSecondary: LightColors.textSecondary,
+    textTertiary: LightColors.textTertiary,
+    border: LightColors.border,
+    error: LightColors.error,
+    todayBackground: LightColors.todayBackground,
+    todayText: LightColors.todayText,
+    selectedBackground: LightColors.selectedBackground,
+    selectedText: LightColors.selectedText,
+    eventDefault: LightColors.eventDefault,
+    weekendText: LightColors.weekendText,
+    lunarText: LightColors.lunarText,
+    holidayText: LightColors.holidayText,
+    solarTermText: LightColors.solarTermText,
+  );
 
   factory AppColors.fromDark() => const AppColors(
-        primary: DarkColors.primary,
-        primaryLight: DarkColors.primaryLight,
-        background: DarkColors.background,
-        surface: DarkColors.surface,
-        surfaceVariant: DarkColors.surfaceVariant,
-        text: DarkColors.text,
-        textSecondary: DarkColors.textSecondary,
-        textTertiary: DarkColors.textTertiary,
-        border: DarkColors.border,
-        error: DarkColors.error,
-        todayBackground: DarkColors.todayBackground,
-        todayText: DarkColors.todayText,
-        selectedBackground: DarkColors.selectedBackground,
-        selectedText: DarkColors.selectedText,
-        eventDefault: DarkColors.eventDefault,
-        weekendText: DarkColors.weekendText,
-        lunarText: DarkColors.lunarText,
-        holidayText: DarkColors.holidayText,
-        solarTermText: DarkColors.solarTermText,
-      );
+    primary: DarkColors.primary,
+    primaryLight: DarkColors.primaryLight,
+    background: DarkColors.background,
+    surface: DarkColors.surface,
+    surfaceVariant: DarkColors.surfaceVariant,
+    text: DarkColors.text,
+    textSecondary: DarkColors.textSecondary,
+    textTertiary: DarkColors.textTertiary,
+    border: DarkColors.border,
+    error: DarkColors.error,
+    todayBackground: DarkColors.todayBackground,
+    todayText: DarkColors.todayText,
+    selectedBackground: DarkColors.selectedBackground,
+    selectedText: DarkColors.selectedText,
+    eventDefault: DarkColors.eventDefault,
+    weekendText: DarkColors.weekendText,
+    lunarText: DarkColors.lunarText,
+    holidayText: DarkColors.holidayText,
+    solarTermText: DarkColors.solarTermText,
+  );
 }

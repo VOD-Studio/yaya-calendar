@@ -55,10 +55,9 @@ class CalendarHeader extends StatelessWidget {
                     '第$weekNumber周',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .onSurface
-                          .withValues(alpha: 0.5),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: 0.5),
                       fontFeatures: const [FontFeature.tabularFigures()],
                     ),
                   ),

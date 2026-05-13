@@ -77,8 +77,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     final showCalendarLayers =
         currentView == ViewType.month || currentView == ViewType.year;
 
-    final activeTab =
-        currentView == ViewType.events ? NavTab.todo : NavTab.calendar;
+    final activeTab = currentView == ViewType.events
+        ? NavTab.todo
+        : NavTab.calendar;
 
     return Scaffold(
       backgroundColor: colors.background,
@@ -89,12 +90,16 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             children: [
               if (showCalendarLayers)
                 CalendarHeader(
-                  onYearViewPress: () => _handleYearToggle(currentView, viewStore),
+                  onYearViewPress: () =>
+                      _handleYearToggle(currentView, viewStore),
                 ),
               Expanded(
                 child: LayoutBuilder(
                   builder: (context, constraints) {
-                    _contentSize = Size(constraints.maxWidth, constraints.maxHeight);
+                    _contentSize = Size(
+                      constraints.maxWidth,
+                      constraints.maxHeight,
+                    );
                     return showCalendarLayers
                         ? _buildCalendarLayers(currentView, viewStore)
                         : _buildContent(currentView, viewStore);
@@ -191,11 +196,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   /// 叠放月/年视图并应用动画变换
   Widget _buildCalendarLayers(ViewType currentView, ViewStore viewStore) {
-    final isAnimating = _transitionController.isAnimating ||
+    final isAnimating =
+        _transitionController.isAnimating ||
         _transitionController.status == AnimationStatus.completed;
 
     final showMonth = currentView == ViewType.month || isAnimating;
-    final showYear = currentView == ViewType.year || (isAnimating && _yearMounted);
+    final showYear =
+        currentView == ViewType.year || (isAnimating && _yearMounted);
 
     return AnimatedBuilder(
       animation: _animation,
@@ -270,17 +277,17 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
 
   /// 三明治变换：translate(dx,dy) → scale → translate(-dx,-dy)
   /// 让缩放以 (center + origin) 为锚点
-  Widget _buildSandwichTransform({required double scale, required Widget child}) {
+  Widget _buildSandwichTransform({
+    required double scale,
+    required Widget child,
+  }) {
     final dx = _originX * (scale - 1);
     final dy = _originY * (scale - 1);
     return Transform.translate(
       offset: Offset(dx, dy),
       child: Transform.scale(
         scale: scale,
-        child: Transform.translate(
-          offset: Offset(-dx, -dy),
-          child: child,
-        ),
+        child: Transform.translate(offset: Offset(-dx, -dy), child: child),
       ),
     );
   }
